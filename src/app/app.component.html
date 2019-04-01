@@ -9,7 +9,10 @@
   </div>
   <button class="ui button primary" (click)="getBookDetails(bookName.value)" type="submit">Search</button>
 </form>
-<div *ngIf = "bookData" class="ui raised segment">
-  <h3 *ngIf= "bookData">Book: {{bookData.items[0].volumeInfo.title}}</h3>
-  <img *ngIf= "bookData"  src ="{{bookData.items[0].volumeInfo.imageLinks.thumbnail}}">
+<div *ngIf="bookData" class="ui centered raised segment">
+  <div class="ui grid container">
+    <h3 *ngIf="bookData">Book: {{bookData.items[0].volumeInfo.title}}</h3>
+    <img class="ui centered image" *ngIf="bookData" src="{{bookData.items[0].volumeInfo.imageLinks.thumbnail}}">
+    <h3 *ngIf="bookData">Description: {{bookData.items[0].searchInfo.textSnippet}}</h3>
+  </div>
 </div>

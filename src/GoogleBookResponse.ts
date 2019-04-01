@@ -5,4 +5,5 @@ export interface GoogleBookResponse
 
 export interface IItems{
     volumeInfo: string;
+    searchInfo: string;
 } 
