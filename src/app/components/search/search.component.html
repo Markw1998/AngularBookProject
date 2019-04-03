@@ -1,0 +1,12 @@
+<form class="ui form">
+  <h3 class="ui center aligned header" style="font-size: 4rem">Google Books Search</h3>
+  <div class="container">
+  <div class="field">
+    <label>Search for a book:</label>
+    <input type="text" name="book-name" placeholder="Enter A Book Name" #bookName>
+  </div>
+</div>
+  <button class="ui button primary" (click)="getBookDetails(bookName.value)">Search</button>
+  <br>
+</form>
+<app-book [books] = "bookData"></app-book>

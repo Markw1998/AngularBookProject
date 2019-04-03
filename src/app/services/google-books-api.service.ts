@@ -16,5 +16,6 @@ export class GoogleBooksApiService {
 
   getBookData(bookName): Observable<GoogleBookResponse> {
     return this._http.get<GoogleBookResponse>(this._siteURL+bookName+this._apiKey).pipe(tap(data => console.log('All: ' +JSON.stringify(data))));
+    
   }
 }
