@@ -9,12 +9,14 @@ import { BookComponent } from './components/book/book.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import { FavouritesComponent } from './components/favourites/favourites.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    BookComponent
+    BookComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,
