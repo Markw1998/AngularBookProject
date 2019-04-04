@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { GoogleBookResponse } from 'src/GoogleBookResponse';
+import { GoogleBooksApiService } from 'src/app/services/google-books-api.service';
 
 @Component({
   selector: 'app-book',
@@ -7,13 +9,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class BookComponent implements OnInit {
-  
- @Input() books: any;
 
+  @Input() books: GoogleBookResponse;
 
-  constructor() { }
+  selectedBook: any;
+
+  constructor(private _googleBookService: GoogleBooksApiService) {
+  }
 
   ngOnInit() {
   }
 
+  getBookIndex(int: number) {
+    this.selectedBook = this.books.items[int];
+    this._googleBookService.addTheBook(this.selectedBook);
+
+  }
 }

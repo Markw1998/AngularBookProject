@@ -9,9 +9,9 @@ export class AppComponent {
 
   // Error Message Declaration
 
-  constructor(){
+  constructor() {
   }
-  
+
   // 
 
 }
