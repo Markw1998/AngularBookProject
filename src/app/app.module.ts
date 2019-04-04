@@ -9,20 +9,25 @@ import { BookComponent } from './components/book/book.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-import { FavouritesComponent } from './components/favourites/favourites.component'
+import { FavouritesComponent } from './components/favourites/favourites.component';
+import { NavbarComponent } from './components/navbar/navbar.component'
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes'
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     BookComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
+    RouterModule.forRoot(routes),
     AngularFirestoreModule
   ],
   providers: [],
