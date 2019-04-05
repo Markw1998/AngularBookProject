@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/AngularBookProject",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

@@ -1,16 +1,19 @@
 <div *ngIf="books">
   <div *ngIf="books.items">
     <div class="ui centered grid">
-      <div class="ten wide column">
-        <div class="ui segment">
-          <div *ngFor="let item of books.items; let i=index">
+        <div class="three wide column" *ngFor="let item of books.items; let i=index">
+          <div class="ui fluid cards">
+            <div class="card">
             <br>
             <h3>Book Title: {{item.volumeInfo.title}}</h3>
             <img class="ui centered image" src="{{item.volumeInfo.imageLinks.thumbnail}}">
             <h3 *ngIf="item.searchInfo">Description: {{item.searchInfo.textSnippet}}</h3>
-            <br>
-            <button class="fluid ui primary button" (click)="getBookIndex(i)">Add to Favourites</button>
-            <br>
+            <div class="extra content">
+              <span class="right floated star">
+                <i class="star icon" (click) = "getBookIndex(i)"></i>
+                Favourite
+              </span>
+            </div>
           </div>
         </div>
       </div>

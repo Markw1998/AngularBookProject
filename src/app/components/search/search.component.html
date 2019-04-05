@@ -1,12 +1,20 @@
-<form class="ui form">
-  <h3 class="ui center aligned header" style="font-size: 4rem">Google Books Search</h3>
-  <div class="container">
-    <div class="field">
-      <label>Search for a book:</label>
-      <input type="text" name="book-name" placeholder="Enter A Book Name" #bookName>
+<br>
+<br>
+<br>
+<div class="ui centered grid">
+  <form class="ui form">
+    <h3 class="ui center aligned header" style="font-size: 4rem; color: #D4D2D5"> <img src="../../../assets/images/Play-Books-icon.png"
+        style="height: 100px; width: 100px;">Google Books Search</h3>
+    <div class="container">
+      <div class="field">
+        <label style="font-size: 15px; color: #D4D2D5">Search for a book:</label>
+        <input type="text" name="book-name" placeholder="Enter A Book Name" #bookName>
+      </div>
     </div>
-  </div>
-  <button class="ui button primary" (click)="getBookDetails(bookName.value)">Search</button>
-  <br>
-</form>
+    <br>
+    <button class="ui secondary button" (click)="getBookDetails(bookName.value)">Search</button>
+    <br>
+    <br>
+  </form>
+</div>
 <app-book [books]="bookData"></app-book>

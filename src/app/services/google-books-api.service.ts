@@ -4,7 +4,6 @@ import { GoogleBookResponse } from 'src/GoogleBookResponse';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators'
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-import { Title } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +15,10 @@ export class GoogleBooksApiService {
 
 
   bookDataCollection: AngularFirestoreCollection<GoogleBookResponse>;
+
+  allBookData: GoogleBookResponse[];
+  firestore: AngularFirestore;
+  bookData: Observable<GoogleBookResponse[]>;
 
   constructor(private _http: HttpClient, private _afs: AngularFirestore) {
     this.bookDataCollection = _afs.collection<GoogleBookResponse>("books_data");
@@ -34,5 +37,13 @@ export class GoogleBooksApiService {
 
   getBookData(bookName): Observable<GoogleBookResponse> {
     return this._http.get<GoogleBookResponse>(this._siteURL + bookName + this._apiKey).pipe(tap(data => console.log('All: ' + JSON.stringify(data))));
+  }
+
+  getAllBooks(): Observable<GoogleBookResponse[]> {
+
+  this.bookData = this.bookDataCollection.valueChanges();
+   
+   return this.bookData;
+  
   }
 }
