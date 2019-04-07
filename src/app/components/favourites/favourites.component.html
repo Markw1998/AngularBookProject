@@ -1,15 +1,22 @@
-<div class="ui centered grid">
-  <div class="ten wide column">
-    <div class="ui segment">
-      <div *ngFor="let item of books">
-        <br>
-        <div style="border-style: ridge;">
-          <h3>Book Title: {{item.volumeInfo.title}}</h3>
-          <img class="ui centered image" src="{{item.volumeInfo.imageLinks.thumbnail}}">
-          <h3 *ngIf="item.searchInfo">Description: {{item.searchInfo.textSnippet}}</h3>
-          <h3 class="ui centered grid"> Average Rating: {{item.volumeInfo.averageRating}}</h3>
-          <br>
-          <br>
+<br>
+<br>
+<div *ngIf="books">
+  <div *ngIf="books">
+    <div class="ui centered grid">
+        <div class="three wide column" *ngFor="let item of books">
+          <div class="ui fluid cards">
+            <div class="card">
+            <br>
+            <h3>Book Title: {{item.volumeInfo.title}}</h3>
+            <img class="ui centered image" src="{{item.volumeInfo.imageLinks.thumbnail}}">
+            <h3 *ngIf="item.searchInfo">Description: {{item.searchInfo.textSnippet}}</h3>
+            <div class="extra content">
+              <span class="right floated star">
+                <i class="star icon" (click) = "getBookIndex(i)"></i>
+                Favourite
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
